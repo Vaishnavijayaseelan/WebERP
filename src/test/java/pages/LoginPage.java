@@ -4,11 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import baseclass.BaseClass;
+import com.WebERPFramework.qa.base.BaseClass;
 
 public class LoginPage extends BaseClass{
 	
-	private WebDriver driver;
+	
 	
 	By txt_username = By.name("UserNameEntryField");
 	By txt_password = By.name("Password");
@@ -20,8 +20,7 @@ public class LoginPage extends BaseClass{
 		PageFactory.initElements(driver, this);
 		
 		
-		
-	}
+		}
 	public void enterUsername(String username) {
 		driver.findElement(txt_username).sendKeys(username);
 	}

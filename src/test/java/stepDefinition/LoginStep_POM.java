@@ -8,7 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import baseclass.BaseClass;
+import com.WebERPFramework.qa.base.BaseClass;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -20,13 +21,13 @@ import pages.LoginPage;
 
 public class LoginStep_POM extends BaseClass{
 
-	//LoginPage loginpage;
+	LoginPage loginpage;
 	
-	LoginPage loginpage =new LoginPage();
+	
 	@Before
     public void beforeScenario() {
 		initialization(); // Call setup method from the base class
-		
+		 loginpage =new LoginPage();
 		
     }
  
@@ -64,20 +65,20 @@ public class LoginStep_POM extends BaseClass{
 	}
 
 	@Then("^user clicks on login button$")
-	public void user_clicks_on_login_button() {
+	public void user_clicks_on_login_button() throws InterruptedException {
 		loginpage.clickLogin();
 		
 		//driver.findElement(By.xpath("//input[@name='SubmitUser']")).click();
 
-
+   Thread.sleep(3000);
 	}
 
 	@Then("^user is navigated to home page$")
-	public void user_is_navigated_to_home_page() {
+	public void user_is_navigated_to_home_page() throws InterruptedException {
 		String title = driver.getTitle();
 		System.out.println("Home page title::"+title);
 		Assert.assertEquals("webERP - Main Menu", title);
-		driver.close();
+		Thread.sleep(3000);
 		
 	}
 	 @After

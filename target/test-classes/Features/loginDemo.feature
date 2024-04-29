@@ -9,4 +9,6 @@ Feature: WebERP login funtionality
 
     Examples: 
       | username | password |
-      | Admin    | webrep   |
+      | Admin    | weberp   |
+
+      
